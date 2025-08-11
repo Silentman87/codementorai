@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode Coding Instructor AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <style>
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div class="logo-text">Code Mentor AI</div>
+        </div>
+        
+        <div class="sidebar-menu">
+            <div class="menu-item active">
+                <i class="fas fa-home"></i>
+                <span class="menu-text">Dashboard</span>
+            </div>
+            <div class="menu-item">
+                <i class="fas fa-history"></i>
+                <span class="menu-text">History</span>
+            </div>
+            <div class="menu-item">
+                <i class="fas fa-book"></i>
+                <span class="menu-text">Tutorials</span>
+            </div>
+            <div class="menu-item">
+                <i class="fas fa-code"></i>
+                <span class="menu-text">Playground</span>
+            </div>
+            <div class="menu-item">
+                <i class="fas fa-cog"></i>
+                <span class="menu-text">Settings</span>
+            </div>
+        </div>
+        
+        <div class="sidebar-footer">
+            <p>Code Mentor AI v2.0</p>
+            <p>Powered by Gemini API</p>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="header">
+            <h1>Coding Instructor AI</h1>
+            <div class="user-controls">
+                <button class="btn">
+                    <i class="fas fa-moon"></i>
+                    <span>Dark Mode</span>
+                </button>
+                <button class="btn">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="dashboard">
+            <!-- Stats Cards -->
+            <div class="card">
+                <div class="card-body">
+                    <div class="stats">
+                        <div class="stat-card">
+                            <i class="fas fa-code-branch fa-2x" style="color: var(--primary);"></i>
+                            <div class="stat-value">1,248</div>
+                            <div class="stat-label">Questions Solved</div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-language fa-2x" style="color: var(--secondary);"></i>
+                            <div class="stat-value">24</div>
+                            <div class="stat-label">Languages</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h2><i class="fas fa-fire" style="color: var(--warning);"></i> Popular Topics</h2>
+                </div>
+                <div class="card-body">
+                    <ul style="list-style-type: none; line-height: 2.2;">
+                        <li><i class="fas fa-chevron-right" style="color: var(--primary); margin-right: 10px;"></i> JavaScript Closures</li>
+                        <li><i class="fas fa-chevron-right" style="color: var(--primary); margin-right: 10px;"></i> Python Decorators</li>
+                        <li><i class="fas fa-chevron-right" style="color: var(--primary); margin-right: 10px;"></i> React Hooks</li>
+                        <li><i class="fas fa-chevron-right" style="color: var(--primary); margin-right: 10px;"></i> Recursion Patterns</li>
+                        <li><i class="fas fa-chevron-right" style="color: var(--primary); margin-right: 10px;"></i> Async/Await</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Input Section -->
+            <div class="card input-section">
+                <div class="card-header">
+                    <h2><i class="fas fa-question-circle" style="color: var(--secondary);"></i> Ask a Coding Question</h2>
+                </div>
+                <div class="card-body">
+                    <div class="instructions">
+                        <i class="fas fa-info-circle"></i>
+                        <div>
+                            <p><strong>How to use:</strong> Ask any coding-related question in any programming language. The AI is specialized to help with coding problems and concepts.</p>
+                            <p>For non-coding questions, responses may be unpredictable!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="questionInput">
+                            <i class="fas fa-terminal"></i>
+                            Your Coding Question
+                        </label>
+                        <textarea id="questionInput" placeholder="e.g., Explain closures in JavaScript, How to implement binary search in Python, What is recursion?"></textarea>
+                    </div>
+                    
+                    <button id="askButton">
+                        <i class="fas fa-paper-plane"></i>
+                        Ask Coding Instructor
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Output Section -->
+            <div class="card output-section">
+                <div class="card-header">
+                    <h2><i class="fas fa-graduation-cap" style="color: var(--success);"></i> Instructor's Response</h2>
+                </div>
+                <div class="card-body">
+                    <div class="loading-indicator" id="loadingIndicator">
+                        <div class="spinner"></div>
+                        <p>Analyzing your question and preparing the best explanation...</p>
+                    </div>
+                    
+                    <div class="output-container">
+                        <div id="outputArea">
+                            <p>Welcome to Coding Instructor AI! I'm here to help you with any programming questions you have.</p>
+                            <p>Ask me about:</p>
+                            <ul>
+                                <li>Programming concepts (OOP, recursion, closures)</li>
+                                <li>Language-specific questions (JavaScript, Python, Java)</li>
+                                <li>Algorithm explanations</li>
+                                <li>Code debugging</li>
+                                <li>Best practices</li>
+                            </ul>
+                            <p>Try asking: <code>"Explain how promises work in JavaScript"</code> or <code>"Show me a Python implementation of quicksort"</code></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const questionInput = document.getElementById('questionInput');
+        const askButton = document.getElementById('askButton');
+        const outputArea = document.getElementById('outputArea');
+        const loadingIndicator = document.getElementById('loadingIndicator');
+
+       
+        const GEMINI_API_KEY = "AIzaSyC0An0akhrB9OSThPjHaNoMgQ6VQon_UDg"; // YOUR ACTUAL API KEY
+        // ========================================================================
+        const MODEL_NAME = "gemini-2.0-flash"; // Or your preferred model  
+    
+
+
+        const systemInstructionText = "You are a Coding Instructor, who answer only to coding related problem. If user ask you anything that is not related to coding, reply him politly and tell them to ask related to programming like sorry i am only give related to programming i have prompt related to that  But if he/she ask problem related to coding response in a detail manner.";
+
+        askButton.addEventListener('click', async () => {
+            const question = questionInput.value.trim();
+
+            if (!question) {
+                outputArea.innerHTML = '<div class="error-message"><i class="fas fa-exclamation-circle"></i> Please enter a coding question first!</div>';
+                return;
+            }
+
+           
+            outputArea.innerHTML = '';
+            loadingIndicator.style.display = 'block';
+            askButton.disabled = true;
+
+            const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL_NAME}:generateContent?key=${GEMINI_API_KEY}`;
+
+            const requestBody = {
+                contents: [
+                    {
+                        role: "user",
+                        parts: [
+                            { text: question }
+                        ]
+                    }
+                ],
+                systemInstruction: {
+                    parts: [
+                        { text: systemInstructionText }
+                    ]
+                }
+            };
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(requestBody),
+                });
+
+                if (!response.ok) {
+                    let errorMsg = `API Error: ${response.status}`;
+                    let errorDetails = "Could not retrieve error details.";
+                    try {
+                        const errorData = await response.json();
+                        if (errorData.error && errorData.error.message) {
+                           errorDetails = errorData.error.message;
+                        }
+                        errorMsg = `${errorMsg} - ${errorDetails}`;
+                        if (errorData.error && errorData.error.status) {
+                            errorMsg += ` (Status: ${errorData.error.status})`;
+                        }
+                        // Check for API key specific issues
+                        if (errorDetails.toLowerCase().includes("api key not valid") || errorDetails.toLowerCase().includes("permission denied")) {
+                            errorMsg += "<br><strong>Please double-check your API key and ensure it's correctly enabled for the Gemini API in your Google Cloud Console or AI Studio.</strong>";
+                        }
+
+                    } catch (parseError) {
+                        errorMsg = `${errorMsg} (Could not parse error response: ${response.statusText})`;
+                    }
+                    throw new Error(errorMsg);
+                }
+
+                const data = await response.json();
+
+                if (data.candidates && data.candidates.length > 0 &&
+                    data.candidates[0].content && data.candidates[0].content.parts && data.candidates[0].content.parts.length > 0) {
+                    const answerText = data.candidates[0].content.parts[0].text;
+                    
+                    // Format the response with code highlighting
+                    let formattedText = answerText;
+                    
+                    // Simple formatting: wrap code snippets in <code> tags
+                    formattedText = formattedText.replace(/(```[\s\S]*?```)|(`[^`]+`)/g, (match) => {
+                        if (match.startsWith('```')) {
+                            return `<pre><code>${match.replace(/```/g, '')}</code></pre>`;
+                        } else {
+                            return `<code>${match.replace(/`/g, '')}</code>`;
+                        }
+                    });
+                    
+                    // Convert line breaks to paragraphs for better readability
+                    const paragraphs = formattedText.split('\n\n');
+                    let htmlOutput = '';
+                    
+                    for (const paragraph of paragraphs) {
+                        if (paragraph.trim() !== '') {
+                            htmlOutput += `<p>${paragraph}</p>`;
+                        }
+                    }
+                    
+                    outputArea.innerHTML = htmlOutput;
+                } else if (data.promptFeedback && data.promptFeedback.blockReason) {
+                     outputArea.innerHTML = `<div class="error-message"><i class="fas fa-ban"></i> Blocked due to: ${data.promptFeedback.blockReason}. Details: ${data.promptFeedback.blockReasonMessage || ''}</div>`;
+                } else {
+                    console.warn("Unexpected response structure:", data);
+                    outputArea.innerHTML = '<div class="error-message"><i class="fas fa-exclamation-triangle"></i> Received an unexpected response structure from the AI.</div>';
+                }
+
+            } catch (error) {
+                console.error('Frontend Error:', error);
+                outputArea.innerHTML = `<div class="error-message"><i class="fas fa-bug"></i> Failed to get answer: ${error.message}</div>`;
+            } finally {
+                askButton.disabled = false;
+                loadingIndicator.style.display = 'none';
+            }
+        });
+
+        // Allow Enter key (but not Shift+Enter) in textarea to submit
+        questionInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault();
+                askButton.click();
+            }
+        });
+
+        // Demo functionality for UI elements
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('.menu-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Add some example questions for demonstration
+        setTimeout(() => {
+            outputArea.innerHTML = `
+                <p><strong>Welcome to Coding Instructor AI!</strong> I'm here to help you with any programming questions you have.</p>
+                <p>Here's an example of how I can help:</p>
+                <p><strong>Question:</strong> What is a closure in JavaScript?</p>
+                <p><strong>Answer:</strong> A closure is a function that retains access to variables from its outer (enclosing) scope even after the outer function has finished executing. This happens because the inner function maintains a reference to its lexical environment.</p>
+                <p>Example:</p>
+                <pre><code>function outer() {
+  const outerVar = 'I am outside!';
+  
+  function inner() {
+    console.log(outerVar); // Accesses outerVar from outer function's scope
+  }
+  
+  return inner;
+}
+
+const myInner = outer();
+myInner(); // Logs "I am outside!"</code></pre>
+                <p>In this example, <code>inner()</code> is a closure that "closes over" the <code>outerVar</code> variable.</p>
+            `;
+        }, 2000);
+    </script>
+</body>
+</html>
